@@ -1,7 +1,7 @@
 # CloudEngine Labs DevOps Engineer Assignment
 
 ## Time limit
-- Assignment needs to be submitted within 2 days after the assignment is shared to candidate.
+- Assignment needs to be submitted within 2 days after it is shared to candidate.
 
 ## Objective of the assignment 
 - This is to test the basic understanding of candidate's knowledge in the below areas,
