@@ -1,0 +1,32 @@
+name: Hello World App Python
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Building HelloWorldApp Docker image
+      run: docker build -t helloworld_app:1.0 .
+      
+      #To Debug
+    - name: Running HelloWorldApp and removing it from workspace after running
+      run: docker run --rm helloworld_app:1.0
+      
+      #To Push Image to Docker Hub
+    - name: Docker Hub Login
+      env:
+        DOCKER_USER: ${{secrets.DOCKER_USER}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+      run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
+        
+    - name: Pusing HelloWorldApp to Docker Hub
+      run: docker push helloworld_app:1.0
